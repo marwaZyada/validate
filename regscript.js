@@ -24,7 +24,7 @@ validate=(e)=>{
         label[0].innerHTML="User Name"
         label[0].style.color="black";
         localStorage.setItem("userName",userName.value)
-        valid=true
+        // valid=(valid)?true:false
     }
     if(email.value==""){
         label[1].innerHTML="Email"+ "  "+'\'Required\'';
@@ -36,7 +36,7 @@ validate=(e)=>{
         label[1].innerHTML="Email"
         label[1].style.color="black";
         localStorage.setItem("Email",email.value)
-        valid=true
+        // valid=(valid)?true:false
     }
     if(password.value==""){
         label[2].innerHTML="Password"+ "  "+'\'Required\'';
@@ -48,13 +48,16 @@ validate=(e)=>{
         label[2].innerHTML="Password"
         label[2].style.color="black";
         localStorage.setItem("Password",password.value)
-        valid=true
+        // valid=(valid)?true:false
     }
+    if(!valid){
+        e.preventDefault()
+    }
+
     
- if(!valid){
-    e.preventDefault();
- }
+console.log(valid)
 
     return valid
 }
 
+form.addEventListener("submit",validate)
