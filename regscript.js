@@ -1,14 +1,16 @@
 let userName=document.getElementById("staticUser");
 let email=document.getElementById("staticEmail2");
 let password=document.getElementById("inputPassword2");
+let form=document.querySelector("form");
 let label=document.getElementsByTagName("label")
 
-let valid=true;
+
 
 
 
 validate=(e)=>{
-    e.preventDefault();
+    let valid=true;
+   
    
     if(userName.value==""){
         label[0].innerHTML="User Name"+ "  "+'\'Required\'';
@@ -48,7 +50,11 @@ validate=(e)=>{
         localStorage.setItem("Password",password.value)
         valid=true
     }
-  
+    
+ if(!valid){
+    e.preventDefault();
+ }
+
     return valid
 }
 
